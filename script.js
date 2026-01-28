@@ -50,7 +50,9 @@ function preload() {
 
 // 設定
 function setup() {
-  createCanvas(550, 700);
+  let w = min(windowWidth, 550);
+  let h = min(windowHeight, 700);
+  createCanvas(w, h);
   textAlign(CENTER);  // 文字對齊
   textSize(28);
   imageMode(CENTER);  // 圖片正中心對齊
