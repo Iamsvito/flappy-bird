@@ -443,3 +443,16 @@ function drawClouds() {
     image(cloudImg, c.x, c.y, c.size, c.size * 0.6);
   }
 }
+
+function touchStarted() {
+  if (gameState === "start") {
+    startGame();
+  } else if (gameState === "playing") {
+    velocity = jump;
+  } else if (gameState === "gameover") {
+    resetGame();
+    gameState = "start";
+  }
+  return false; // 防止手機滑動頁面
+}
+
