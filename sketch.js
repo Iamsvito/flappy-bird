@@ -11,6 +11,7 @@ let clouds = [];
 
 let frame = 0;
 let score = 0;
+let highScore = 0;
 let gameState = "start";
 
 let birdImg;
@@ -67,6 +68,10 @@ function setup() {
       speed: random(0.3, 0.8)    // 飄動速度
     };
     clouds.push(cloud);
+  }
+  let saved = localStorage.getItem("flappy_highscore");
+  if (saved !== null) {
+    highScore = int(saved);
   }
 }
 
@@ -256,15 +261,21 @@ function draw() {
     textAlign(LEFT);
     textSize(28);
     text("Score: " + score, 10, 35);
+    text("Best: " + highScore, 10, 70);
   }
 
 
   // 遊戲結束
   if (gameState === "gameover") {
+    if (score > highScore) {
+          highScore = score;
+          localStorage.setItem("flappy_highscore", highScore);
+    }
     fill(255);
     textAlign(CENTER);
     textSize(50);
     text("Game Over!", width / 2, height / 2 - 80);
+    text("Best: " + highScore, width / 2, height / 2 + 10);
 
     textSize(28);
     text("Score: " + score, width / 2, height / 2 - 20);
