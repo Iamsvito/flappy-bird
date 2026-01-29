@@ -275,11 +275,10 @@ function draw() {
     textAlign(CENTER);
     textSize(50);
     text("Game Over!", width / 2, height / 2 - 80);
-    text("Best: " + highScore, width / 2, height / 2 + 10);
-
+    
     textSize(28);
     text("Score: " + score, width / 2, height / 2 - 20);
-
+    text("Best: " + highScore, width / 2, height / 2 + 10);
     textSize(22);
     text("Press SPACE to back", width / 2, height / 2 + 30);
   }
